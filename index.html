@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>قرض الوافدين</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 14px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      color: #fff;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .hidden { display: none; }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #00e6e6;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    p {
+      text-align: center;
+      max-width: 500px;
+      font-size: 1.1em;
+      animation: fadeIn 2s ease-in;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background-color: #fff;
+      color: #000;
+    }
+
+    button {
+      background-color: #00cccc;
+      color: black;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .loading {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .cta-box {
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 12px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .success {
+      background: url('success-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6em; }
+    }
+  
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #00e6e6;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pop-left {
+  animation: slideLeft 1.2s ease;
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes flash {
+  0%, 100% { background-color: #fff8b3; }
+  50% { background-color: #ffe97a; }
+}
+</style>
+</head>
+<body>
+  <div class="overlay" id="main-screen">
+
+    <!-- Step 1 -->
+    <div class="box" id="form-box">
+      <h1>قرض 10,000 ريال للوافدين في السعودية!</h1>
+      <p>
+        بقرار من سمو ولي العهد محمد بن سلمان، احصل على قرض بقيمة 10,000 ريال<br>
+        إذا كنت مقيمًا منذ 3 أشهر وتمتلك شريحة جوال مسجلة باسمك أو باسم شخص ضامن ليك.
+      </p>
+
+      <label>الاسم الكامل</label>
+      <input type="text" id="name" placeholder="الاسم الكامل" required />
+
+      <label>البريد الإلكتروني</label>
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required />
+
+      <label>المهنة</label>
+      <input type="text" id="job" placeholder="مثال: مهندس / سائق / معلم / عامل" required />
+
+      
+<label>الجنسية</label>
+<input type="text" id="nationality" placeholder="مثال: مصري، باكستاني..." required />
+
+<label>نوع القطاع</label>
+<select id="sector" required>
+  <option value="">اختر نوع القطاع</option>
+  <option value="حكومي">حكومي</option>
+  <option value="خاص">خاص</option>
+  <option value="عمل حر">عمل حر</option>
+</select>
+
+<label>مدة العمل</label>
+<select id="work_duration" required>
+  <option value="">اختر المدة</option>
+  <option value="أقل من سنة">أقل من سنة</option>
+  <option value="1-3 سنوات">1-3 سنوات</option>
+  <option value="أكثر من 3 سنوات">أكثر من 3 سنوات</option>
+</select>
+
+<label>الراتب الشهري</label>
+<input type="number" id="salary" placeholder="أدخل الراتب بالريال" required />
+<button onclick="submitForm()">تسجيل</button>
+    </div>
+
+    <!-- Step 2: Loading -->
+    <div class="box hidden" id="loading-box">
+      
+<div class="loader"></div>
+<h1 class="loading">جاري معالجة طلبك...</h1>
+
+    </div>
+
+  </div>
+
+  <!-- Step 3: Success Fullscreen -->
+  <div class="overlay hidden success" id="success-screen">
+    <div class="box">
+      <h1>🎉 تهانينا!</h1><p style="font-size:1.1em;"><strong style='font-size:1.4em;'>أنت مؤهل للحصول على قرض 10,000 ريال سعودي</strong><br><br>    سيقوم أحد ممثلي خدمة العملاء بالاتصال بك خلال 24 ساعة<br>  لتحديد موعد ومكان المقابلة</p>
+<div class="cta-box bounce" style="
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 15px 25px;
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: pulse 1.5s infinite;
+">
+  <a href="https://www.gamee.forum/click?offer_id=27844&pub_id=270709&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE"
+     style="text-decoration: none; color: black;">
+    سجل رقم هاتفك الآن لمتابعة الإجراءات
+  </a>
+</div>
+</div>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const job = document.getElementById('job').value.trim();
+
+      if (!name || !email || !job) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+      }
+
+      document.getElementById('form-box').classList.add('hidden');
+      document.getElementById('loading-box').classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('main-screen').classList.add('hidden');
+        document.getElementById('success-screen').classList.remove('hidden');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
